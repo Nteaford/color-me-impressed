@@ -29,6 +29,9 @@ export default function LoginForm({ setUser }) {
 
   return (
     <div>
+      <h1>Welcome to Color-Me-Impressed</h1>
+      <hr />
+      <h2>Sign In</h2>
       <div className="form-container" onSubmit={handleSubmit}>
         <form autoComplete="off" >
           <label>Email</label>

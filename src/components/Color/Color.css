@@ -1,0 +1,11 @@
+.colorbox{
+  height: 100px;
+  width: 100px;
+  border: 1px solid black;
+  color: white;
+  font-size: small;
+  text-align: center;
+  margin: auto;
+  padding: auto;
+  font-weight: 400;
+}
