@@ -5,16 +5,24 @@ import Color from '../Color/Color';
 
 export default function PSColorPickerContainer ({randColors}) {   
     const [colors,setColors] = useState(randColors);
+    const [status, setStatus] = useState(false);
     
     useEffect(function() {
-        if (randColors.length !== 16) {setColors([...randColors]) }
-        },);
+        if (randColors.length !== 16) {
+            setColors([...randColors]);
+        }
+        if (colors.length === 16) {
+            setStatus(true);
 
+        }
+    },);
+        
+    
     
     const squareColors = colors.map((color, idx) => 
     <Color color={color} key ={idx} /> )
     
-    
+    if (status === true) {
     return (
         <div>
             <br />
@@ -25,5 +33,15 @@ export default function PSColorPickerContainer ({randColors}) {
                 {squareColors}
             </div>
         </div>
+    );} else {
+    return (
+        <div>
+            <br />
+            <br />
+            <h1>Your Random Colors are Loading...</h1>
+            <hr />
+
+        </div>
     );
+}
 }
