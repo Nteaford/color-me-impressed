@@ -23,11 +23,9 @@ export default function ColorsPage( {user}) {
       }
     }
     generatePSColors();
-    console.log(psColors);
     // return setRandColors(psColors);
     const randColorsAPI = await colorsAPIExternal.fetchPSColors(psColors); 
     setRandColors(randColorsAPI);
-    console.log(randColors);
   },[]);
     
 
@@ -37,7 +35,7 @@ export default function ColorsPage( {user}) {
     <br />
     <h1> Colors Page </h1>
 
-    <PSColorPickerContainer randColors={randColors}/>
+    <PSColorPickerContainer randColors={randColors} />
     
     <hr />
     <CYOColorPickerContainer />
