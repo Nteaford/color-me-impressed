@@ -1,17 +1,20 @@
 const BASE_URL = 'https://www.thecolorapi.com';
 const fetch = require('node-fetch');
 
-export async function getPSColors(randColors) {
-    let randColorsAPI= [];
-    await randColors.forEach(function(color) {
-    fetch(`${BASE_URL}/id?hex=${color}`)
-    .then(response => response.json())
-    .then(function(colorObject) {
-    randColorsAPI.push(colorObject);
-    })
-    });
-}
-
+export async function fetchPSColors(psColors) {
+  let randColorsAPI = [];  
+  await Promise.all([
+      psColors.forEach(async function(color) {
+        fetch(`${BASE_URL}/id?hex=${color}`)
+        .then(response => response.json())
+        .then(function(colorObject) {
+        randColorsAPI.push(colorObject);
+        })
+      })      
+    ]);
+    return randColorsAPI;
+  }
+    
 
 
 
