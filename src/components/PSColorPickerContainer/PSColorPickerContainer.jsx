@@ -7,27 +7,30 @@ const fetch = require('node-fetch');
 
 export default function PSColorPickerContainer ({user}) {   
     const [randColors,setRandColors] = useState([]);
-  
-    async function handleRandomColors(){
-        let psColors = [];
-        function generatePSColors() {
-          //generate random hex code 
-          let randomColor = Math.floor(Math.random()*16777215).toString(16);
-          psColors.push(randomColor);
-          //base case
-          if (psColors.length < 16) {
-            return generatePSColors();  
-          } else {
-            return psColors;
-          }
-        }
-        generatePSColors();
-        // return setRandColors(psColors);
-        //this await function causes problems with the rerender of the page -- troubleshooted with tong and when randColorsAPI is changed to a hardcoded array, the component will rerender
-        const randColorsAPI = await colorsAPIExternal.fetchPSColors(psColors); 
-        setRandColors(randColorsAPI, console.log(randColors));
-    }
+    const [status,setStatus] = useState(false);
 
+
+    async function handleRandomColors(){
+      let psColors = [];
+      function generatePSColors() {
+        //generate random hex code 
+        let randomColor = Math.floor(Math.random()*16777215).toString(16);
+        psColors.push(randomColor);
+        //base case
+        if (psColors.length < 16) {
+          return generatePSColors();  
+        } else {
+          return psColors;
+        }
+      }
+      generatePSColors();
+      // return setRandColors(psColors);
+      //this await function causes problems with the rerender of the page -- troubleshooted with tong and when randColorsAPI is changed to a hardcoded array, the component will rerender
+      const randColorsAPI = await colorsAPIExternal.fetchPSColors(psColors); 
+      setRandColors(randColorsAPI);
+    }
+  
+    
     // function generateBoxes(randColors) {
     // const squareColors = randColors.map((color, idx) => 
     // <Color color={color} key ={idx} /> );
