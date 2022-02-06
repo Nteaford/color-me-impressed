@@ -1,36 +1,46 @@
 import { useState, useEffect, useRef } from 'react';
 import './PSColorPickerContainer.css';
+import * as colorsAPIExternal from '../../utilities/colors-api-external';
 import Color from '../Color/Color';
+const fetch = require('node-fetch');
 
 
-export default function PSColorPickerContainer ({randColors}) {   
-    const [colors,setColors] = useState(randColors);
+export default function PSColorPickerContainer ({user}) {   
+    const [randColors,setRandColors] = useState([]);
     const [status, setStatus] = useState(false);
-    
-    useEffect(function() {
-        if (randColors.length !== 16) {
-            setColors([...randColors]);
+  
+    async function handleRandomColors(){
+        let psColors = [];
+        function generatePSColors() {
+          //generate random hex code 
+          let randomColor = Math.floor(Math.random()*16777215).toString(16);
+          psColors.push(randomColor);
+          //base case
+          if (psColors.length < 16) {
+            return generatePSColors();  
+          } else {
+            return psColors;
+          }
         }
-        if (colors.length === 16) {
-            setStatus(true);
+        generatePSColors();
+        // return setRandColors(psColors);
+        const randColorsAPI = await colorsAPIExternal.fetchPSColors(psColors); 
+        setRandColors(randColorsAPI,setStatus(true));
+    }
 
-        }
-    },);
-        
-    
-    
-    const squareColors = colors.map((color, idx) => 
-    <Color color={color} key ={idx} /> )
+    // function generateBoxes(randColors) {
+    // const squareColors = randColors.map((color, idx) => 
+    // <Color color={color} key ={idx} /> );
+    // return squareColors;
+    // }
     
     if (status === true) {
     return (
         <div>
-            <br />
-            <br />
-            <h1>Check out these Colors!</h1>
+            <h4>Check out these Colors!</h4>
             <hr />
             <div className="PSCPC">
-                {squareColors}
+                {randColors.map((color, idx) => <Color color={color} key ={idx} /> )}
             </div>
         </div>
     );} else {
@@ -38,7 +48,9 @@ export default function PSColorPickerContainer ({randColors}) {
         <div>
             <br />
             <br />
-            <h1>Your Random Colors are Loading...</h1>
+            <h1>Click the button below to generate random colors...</h1>
+            <br />
+            <button onClick={handleRandomColors}> Generate Colors </button>
             <hr />
 
         </div>
