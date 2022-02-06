@@ -7,7 +7,6 @@ const fetch = require('node-fetch');
 
 export default function PSColorPickerContainer ({user}) {   
     const [randColors,setRandColors] = useState([]);
-    const [status, setStatus] = useState(false);
   
     async function handleRandomColors(){
         let psColors = [];
@@ -24,8 +23,9 @@ export default function PSColorPickerContainer ({user}) {
         }
         generatePSColors();
         // return setRandColors(psColors);
+        //this await function causes problems with the rerender of the page -- troubleshooted with tong and when randColorsAPI is changed to a hardcoded array, the component will rerender
         const randColorsAPI = await colorsAPIExternal.fetchPSColors(psColors); 
-        setRandColors(randColorsAPI,setStatus(true));
+        setRandColors(randColorsAPI, console.log(randColors));
     }
 
     // function generateBoxes(randColors) {
@@ -33,8 +33,7 @@ export default function PSColorPickerContainer ({user}) {
     // <Color color={color} key ={idx} /> );
     // return squareColors;
     // }
-    
-    if (status === true) {
+    if (randColors.length > 0) {
     return (
         <div>
             <h4>Check out these Colors!</h4>
