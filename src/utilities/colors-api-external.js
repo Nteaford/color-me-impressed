@@ -3,18 +3,32 @@ const fetch = require('node-fetch');
 
 export async function fetchPSColors(psColors) {
   let randColorsAPI = [];  
-  // await Promise.all([
+  await Promise.all([
       psColors.forEach(async function(color) {
         fetch(`${BASE_URL}/id?hex=${color}`)
         .then(response => response.json())
         .then(function(colorObject) {
         randColorsAPI.push(colorObject);
         })
-      });      
-    // ]);
+      })      
+    ]);
     return randColorsAPI;
   }
     
+
+  // export async function fetchScheme(selectedColor) {
+  //   let newScheme = [];  
+  //         fetch(`${BASE_URL}/id?hex=${color}`)
+  //         .then(response => response.json())
+  //         .then(function(colorObject) {
+  //         randColorsAPI.push(colorObject);
+  //         })
+  //       });      
+  //     ]);
+  //     return randColorsAPI;
+  //   }
+
+
 
 
 

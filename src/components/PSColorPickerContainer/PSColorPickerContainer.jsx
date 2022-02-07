@@ -9,8 +9,8 @@ export default function PSColorPickerContainer ({user}) {
     const [randColors,setRandColors] = useState([]);
     const [status,setStatus] = useState(false);
 
-
-    async function handleRandomColors(){
+        
+    function handleRandomColors(){
       let psColors = [];
       function generatePSColors() {
         //generate random hex code 
@@ -20,23 +20,30 @@ export default function PSColorPickerContainer ({user}) {
         if (psColors.length < 16) {
           return generatePSColors();  
         } else {
-          return psColors;
+        return psColors;
         }
       }
-      generatePSColors();
+      return generatePSColors();
       // return setRandColors(psColors);
       //this await function causes problems with the rerender of the page -- troubleshooted with tong and when randColorsAPI is changed to a hardcoded array, the component will rerender
-      const randColorsAPI = await colorsAPIExternal.fetchPSColors(psColors); 
-      setRandColors(randColorsAPI);
+      // const randColorsAPI = await colorsAPIExternal.fetchPSColors(psColors); 
+      // setRandColors(randColorsAPI, console.log(randColorsAPI));
     }
   
     
-    // function generateBoxes(randColors) {
-    // const squareColors = randColors.map((color, idx) => 
-    // <Color color={color} key ={idx} /> );
-    // return squareColors;
-    // }
-    if (randColors.length > 0) {
+    async function apiFetch(psColors) {
+      console.log(psColors);
+      const randColorsAPI = await colorsAPIExternal.fetchPSColors(psColors); 
+      console.log("pre state variable set", randColors);
+      setRandColors(randColorsAPI);
+      setStatus(true);
+    }
+    
+    // apiFetch(handleRandomColors());
+    
+    console.log("onload/afterclick load", randColors);
+    
+    if (status) {
     return (
         <div>
             <h4>Check out these Colors!</h4>
@@ -52,7 +59,7 @@ export default function PSColorPickerContainer ({user}) {
             <br />
             <h1>Click the button below to generate random colors...</h1>
             <br />
-            <button onClick={handleRandomColors}> Generate Colors </button>
+            <button onClick={()=> apiFetch(handleRandomColors())}> Generate Colors </button>
             <hr />
 
         </div>
