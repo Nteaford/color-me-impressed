@@ -23,24 +23,15 @@ export default function PSColorPickerContainer({ user }) {
       }
     }
     return generatePSColors();
-    // return setRandColors(psColors);
-    //this await function causes problems with the rerender of the page -- troubleshooted with tong and when randColorsAPI is changed to a hardcoded array, the component will rerender
-    // const randColorsAPI = await colorsAPIExternal.fetchPSColors(psColors); 
-    // setRandColors(randColorsAPI, console.log(randColorsAPI));
   }
 
 
   async function apiFetch(psColors) {
-    console.log(psColors);
     const randColorsAPI = await colorsAPIExternal.fetchPSColors(psColors);
-    console.log("pre state variable set", randColors);
     setRandColors(randColorsAPI);
     setStatus(true);
   }
 
-  // apiFetch(handleRandomColors());
-
-  console.log("onload/afterclick load", randColors);
 
 
   return (
@@ -54,6 +45,8 @@ export default function PSColorPickerContainer({ user }) {
           <div className="PSCPC">
             {randColors.map((color, idx) => <Color color={color} key={idx} />)}
           </div>
+          <br />
+          <button onClick={() => apiFetch(handleRandomColors())}> Show me new colors </button>
         </div>
 
         :
