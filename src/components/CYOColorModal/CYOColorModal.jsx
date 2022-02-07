@@ -1,14 +1,16 @@
 import './CYOColorModal.css';
 import { useState } from 'react';
-import * as colorsAPIExternal from '../../utilities/colors-api-external';
+
 
 export default function CYOColorModal({ hideModal, show, fetchCYOPick, cyoColor, setCYOColor }) {
     const showHideClassName = show ? "modal display-block" : "modal display-none";
+    const [selectedColor, setSelectedColor] = useState("");
 
     function handleChange(evt) {
-        const newCYOPick = evt.target.value;
+        let newCYOPick = evt.target.value;
+        newCYOPick = newCYOPick.substring(1);
         console.log(newCYOPick);
-        setCYOColor(newCYOPick);
+        setSelectedColor(newCYOPick);
     }
 
 
@@ -21,11 +23,11 @@ export default function CYOColorModal({ hideModal, show, fetchCYOPick, cyoColor,
                         <input
                             type="color"
                             id="colorpicker-hex"
-                            value={cyoColor}
+                            value={`#${selectedColor}`}
                             placeholder="#0000ff"
                             onChange={handleChange}
                         />
-                        <button type="button" onClick={fetchCYOPick}>
+                        <button type="button" onClick={() =>fetchCYOPick(selectedColor)}>
                             Select this Color
                         </button>
                     </form>
