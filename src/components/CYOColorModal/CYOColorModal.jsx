@@ -1,7 +1,7 @@
 import './CYOColorModal.css';
 import {useState} from 'react';
 
-export default function CYOColorModal ({ hideModal, show}) {
+export default function CYOColorModal ({ hideModal, show, handleCYOPick}) {
     const showHideClassName = show ? "modal display-block" : "modal display-none";
 
 
@@ -10,8 +10,8 @@ export default function CYOColorModal ({ hideModal, show}) {
             <section className="modal-main">
                 <div className="CYOCP">
                     <form action="/color/">
-                        <label for="colorpicker">Select a color from this picker:</label>
-                        <input type="color" id="colorpicker" value="#0000ff"/>
+                        <label htmlFor="colorpicker">Select a color from this picker:</label>
+                        <input type="color" id="colorpicker-hex" value="#0000ff" onChange={handleCYOPick}/>
                     </form>
                 </div>
 
