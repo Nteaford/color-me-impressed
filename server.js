@@ -21,11 +21,13 @@ app.use(express.static(path.join(__dirname, 'build')));
 
 // Middleware
 app.use(require('./config/checkToken'));
-
+// Require our ensureLoggedIn middleware
+const ensureLoggedIn = require('./config/ensureLoggedIn');
 
 // Put API routes here, before the "catch all" route
 app.use('/api/users', require('./routes/api/users'));
-
+app.use('/api/colors', ensureLoggedIn, require('./routes/api/colors'));
+app.use('/api/palette', ensureLoggedIn, require('./routes/api/palette'));
 
 
 // The following "catch all" route (note the *) is necessary

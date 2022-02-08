@@ -16,7 +16,6 @@ export default function CYOColorPickerContainer() {
   };
 
   async function fetchCYOPick(selectedColor) {
-    console.log("selectedColor", selectedColor);
     const fetchedCyoColor = await colorsAPIExternal.fetchCYOColor(selectedColor);
     setCYOColor(fetchedCyoColor);
     hideModal();
@@ -26,25 +25,28 @@ export default function CYOColorPickerContainer() {
   return (
     <div>
       <h1>Choose Your Own Color</h1>
-      <CYOColorModal setShow={setShow} show={show} hideModal={hideModal} fetchCYOPick={fetchCYOPick} cyoColor={cyoColor} setCYOColor={setCYOColor} />
-      <button type="button" onClick={showModal}>
-        Open
-      </button>
-
       {cyoColor ?
-        <div
-          className='colorbox'
-          style={{
-            backgroundColor: `${cyoColor.name.closest_named_hex}`
-          }}
-        >
-          <p>{cyoColor.name.value}</p>
+        <div className='CYOCP'>
+          <div
+            className='colorbox'
+            style={{
+              backgroundColor: `${cyoColor.name.closest_named_hex}`
+            }}
+          >
+            <p>{cyoColor.name.value}</p>
+          </div>
         </div>
+
 
         :
 
         <div> Select a Color</div>
       }
+      <CYOColorModal setShow={setShow} show={show} hideModal={hideModal} fetchCYOPick={fetchCYOPick} cyoColor={cyoColor} setCYOColor={setCYOColor} />
+      <button type="button" onClick={showModal}>
+        Open
+      </button>
+
     </div>
   )
 }

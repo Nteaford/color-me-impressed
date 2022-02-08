@@ -9,7 +9,6 @@ export default function CYOColorModal({ hideModal, show, fetchCYOPick, cyoColor,
     function handleChange(evt) {
         let newCYOPick = evt.target.value;
         newCYOPick = newCYOPick.substring(1);
-        console.log(newCYOPick);
         setSelectedColor(newCYOPick);
     }
 
