@@ -3,7 +3,6 @@ import { useState, useEffect, useRef } from 'react';
 import PSColorPickerContainer from '../../components/PSColorPickerContainer/PSColorPickerContainer';
 import CYOColorPickerContainer from '../../components/CYOColorPickerContainer/CYOColorPickerContainer';
 import SelectedFavoritesContainer from '../../components/SelectedFavoritesContainer/SelectedFavoritesContainer';
-const BASE_URL = 'https://www.thecolorapi.com';
 
 export default function ColorsPage({ user }) {
   const [selected, setSelected] = useState([]);

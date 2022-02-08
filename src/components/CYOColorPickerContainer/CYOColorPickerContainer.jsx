@@ -1,7 +1,7 @@
 import './CYOColorPickerContainer.css';
 import { useState } from 'react';
 import CYOColorModal from '../CYOColorModal/CYOColorModal';
-import * as colorsAPIExternal from '../../utilities/colors-api-external';
+import * as colorsAPI from '../../utilities/colors-api';
 
 export default function CYOColorPickerContainer({handleColorSelect}) {
   const [show, setShow] = useState(false);
@@ -16,7 +16,7 @@ export default function CYOColorPickerContainer({handleColorSelect}) {
   };
 
   async function fetchCYOPick(selectedColor) {
-    const fetchedCyoColor = await colorsAPIExternal.fetchCYOColor(selectedColor);
+    const fetchedCyoColor = await colorsAPI.fetchCYOColor(selectedColor);
     setCYOColor(fetchedCyoColor);
     hideModal();
   }

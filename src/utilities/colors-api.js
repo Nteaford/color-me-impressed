@@ -1,9 +1,13 @@
-const BASE_URL = 'https://www.thecolorapi.com';
+const COLOR_API_URL = 'https://www.thecolorapi.com';
+const BASE_URL = '/api/colors';
     
+
+
+//external API
   export async function fetchPSColors(psColors) {
     const colorPromises = [];
     for (let color of psColors) {
-      let colorPromise = fetch(`${BASE_URL}/id?hex=${color}`).then(res => res.json())
+      let colorPromise = fetch(`${COLOR_API_URL}/id?hex=${color}`).then(res => res.json())
       colorPromises.push(colorPromise);
     }
     const final = await Promise.all(colorPromises);
@@ -11,7 +15,7 @@ const BASE_URL = 'https://www.thecolorapi.com';
   }
 
   export async function fetchCYOColor(newCYOPick) {
-      const cyoColor = await fetch(`${BASE_URL}/id?hex=${newCYOPick}`).then(res => res.json())
+      const cyoColor = await fetch(`${COLOR_API_URL}/id?hex=${newCYOPick}`).then(res => res.json())
       return cyoColor;
 
     }
@@ -32,10 +36,17 @@ const BASE_URL = 'https://www.thecolorapi.com';
 
 
 
+  //internal API
+
+// Add one or multiple colors to your favorites
+ function addColorsToFavorites(color) {
+  return sendRequest(`${BASE_URL}/${color}`, 'POST');
+}
 
 
 
-//HelperFunction
+
+//Helper Functions 
 async function sendRequest(url, method = 'GET', payload = null) {
     // Fetch accepts an options object as the 2nd argument
     // used to include a data payload, set headers, etc. 

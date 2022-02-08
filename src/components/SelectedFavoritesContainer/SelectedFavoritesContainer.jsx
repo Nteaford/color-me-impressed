@@ -13,6 +13,11 @@ export default function selectedFavoriesContainer({selected, handleColorSelect})
             {selected.map((color, idx) => <Color color={color} key={idx} handleColorSelect={handleColorSelect} />)}
           </div>
 
+        <button
+        onClick={()=> alert('click')}
+        > 
+        Add Favorites to my Account</button>
+
        </div>
     )
 } 
