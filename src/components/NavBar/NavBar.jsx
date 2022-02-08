@@ -10,14 +10,17 @@ export default function NavBar({user, setUser}) {
     }
 
     return(
-            <nav> 
-                <Link to="/colors"> Colors and Color Schemes </Link>
+            <nav className="navbar navbar-dark bg-dark fixed-top"> 
+                <Link className="navbuttons" to="/colors"> Colors and Color Schemes </Link>
                 &nbsp; | &nbsp;
-                <Link to="favorites"> My Favorites </Link>
+                <Link className="navbuttons" to="favorites"> My Favorites </Link>
                 &nbsp; | &nbsp;
-                Welcome {user.name}!
+                <div className="navbuttons">
+                <p className="navwelcome">Welcome {user.name}! </p>
                 &nbsp;
-                <Link onClick={handleLogOut} to=""> Log Out </Link>
+                <Link className="navbuttons"  onClick={handleLogOut} to=""> Log Out </Link>
+                    
+                </div>
             </nav>
     )
 

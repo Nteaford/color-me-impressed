@@ -1,3 +1,19 @@
 .colorspage {
-    display: flex;
+    padding-top: 1%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    grid-template-rows: 1fr;
+    border-radius: 2vmin;
 }
+
+.colorspage aside {
+    display: flex;
+    padding-right: 1%;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin: 3vmin 2vmin;
+    border-radius: 5px;
+    background-color: var(--alto);
+  }
