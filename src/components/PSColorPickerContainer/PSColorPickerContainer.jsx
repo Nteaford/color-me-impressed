@@ -4,7 +4,7 @@ import * as colorsAPIExternal from '../../utilities/colors-api-external';
 import Color from '../Color/Color';
 
 
-export default function PSColorPickerContainer({ user }) {
+export default function PSColorPickerContainer({ user, handleColorSelect }) {
   const [randColors, setRandColors] = useState([]);
   const [status, setStatus] = useState(false);
 
@@ -43,7 +43,7 @@ export default function PSColorPickerContainer({ user }) {
           <h4>Check out these Colors!</h4>
           <hr />
           <div className="PSCPC">
-            {randColors.map((color, idx) => <Color color={color} key={idx} />)}
+            {randColors.map((color, idx) => <Color color={color} key={idx} handleColorSelect={handleColorSelect} />)}
           </div>
           <br />
           <button onClick={() => apiFetch(handleRandomColors())}> Show me new colors </button>
@@ -57,7 +57,7 @@ export default function PSColorPickerContainer({ user }) {
           <h1>Click the button below to generate random colors...</h1>
           <br />
           <button onClick={() => apiFetch(handleRandomColors())}> Generate Colors </button>
-          <hr />
+
 
         </div>
       }

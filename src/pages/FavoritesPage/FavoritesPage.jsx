@@ -8,7 +8,9 @@ export default function OrderHistoryPage() {
 
   return (
     <div>
-    
+    <br />
+    <br />
+    <br />
     <h1>
       Favorites Page
     </h1>

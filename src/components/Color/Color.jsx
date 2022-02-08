@@ -1,11 +1,12 @@
 import './Color.css';
 
 
-export default function Color({color}) {
+export default function Color({color, handleColorSelect}) {
  
     return(
     <div 
         className='colorbox' 
+        onClick={()=> handleColorSelect(color)}
         style={{
         backgroundColor: `${color.name.closest_named_hex}`
         }}
