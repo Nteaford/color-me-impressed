@@ -15,28 +15,33 @@ const colorSchema = new Schema({
 });
 
 
-colorSchema.statics.getFavorites = async function(userId) {
-  const favoriteColors = await this.find({user: userId}).exec();
-  return favoriteColors;
-}
+// colorSchema.statics.getFavorites = async function(userId) {
+//   const favoriteColors = await this.find({user: userId}).exec();
+//   return favoriteColors;
+// }
 
-colorSchema.methods.addColorsToFavorites = async function(colors) {
-  // 'this' refers to the 'favorite colors'
-  colors.forEach(function(color) {
-    // const existingColor = await mongoose.model('Color').findOne(closest_named_hex: color.name.closest_named_hex );
+// colorSchema.methods.add = async function(colors) {
+//   console.log(colors);
+//   colors.forEach(function(color) {
+//     if (mongoose.model('Color').findOne({closest_named_hex: color.name.closest_named_hex})) {
+//       return;
 
-  })
-  const favoriteColors = this;
-  const existingColors = favoriteColors.find(existingColors => existingColors._id.equals(itemId));
-  if (existingColors) {
-return;
-  } else {
-    // Not in favorites, lets add the color!
-    const color = await mongoose.model('Color').findById(itemId);
-    cart.lineItems.push({ item });
-  }
-  return cart.save();
-};
+//     } else {
+//       const addedColor = colorSchema.create({
+//         name: color.name,
+//         hex: color.hex,
+//         rgb: color.rgb,
+//         hsl: color.hsl,
+//         hsv: color.hsv,
+//         xyz: color.xyz,
+//         cmyk: color.cmyk,
+//         contrast: color.contrast
+//       })
+//       console.log(addedColor);
+//     };
+// });
+// }
+
 
 
 module.exports = mongoose.model('Color', colorSchema);

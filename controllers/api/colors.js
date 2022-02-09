@@ -16,25 +16,24 @@ async function show(req, res) {
   res.json(color);
 }
 
-// Add a color to favorites
+// Add a color to the database
 async function addToFavorites(req, res) {
-  console.log("controller log req.body", req.body);
-  let colors = req.body;
-  console.log(colors);
-  await Color.addColorsToFavorites(colors);
-  
-
-  return;
-  
-  // const color = await Color.create(req.body)
-  // res.json( {
-  //   name: req.body.name
-
-  // })
-  
-  // const favoriteColors = await Colors.getFavorites(req.user._id);
-  // The promise resolves to the document, which we already have
-  // in the cart variable, so no need to create another variable...
-  // await favoriteColors.addColorsToFavorites(req.params.id);
-  // res.json(favoriteColors);
+  const colors = req.body;
+  colors.forEach(function (color) {
+    if (!Color.findOne({ closest_named_hex: color.name.closest_named_hex })) 
+      console.log("color", color)
+      const addedColor = new Color({
+        name: color.name,
+        hex: color.hex,
+        rgb: color.rgb,
+        hsl: color.hsl,
+        hsv: color.hsv,
+        xyz: color.xyz,
+        cmyk: color.cmyk,
+        contrast: color.contrast
+      })
+      addedColor.save();
+      console.log("new added color", addedColor);
+    });
+  res.json(colors);
 }
