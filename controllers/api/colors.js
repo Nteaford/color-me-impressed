@@ -23,10 +23,8 @@ async function addToFavorites(req, res) {
   colors.forEach(function (color) {
     let query = color.name.closest_named_hex
     console.log(query);
-    console.log(storedColor);
     storedColor = null;
-    console.log(storedColor);
-    Color.findOne({closest_named_hex:query}, function(err, storedColor) {
+    Color.findOne({ "name.closest_named_hex" : query }, function(err, storedColor) {
       if (err) console.log(err);
       if (storedColor) {
         console.log("This has already been added", storedColor);
