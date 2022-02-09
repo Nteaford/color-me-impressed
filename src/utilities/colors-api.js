@@ -23,28 +23,3 @@ const BASE_URL = '/api/colors';
       return cyoColor;
 
     }
-
-
-
-  // export async function fetchScheme(selectedColor) {
-  //   let newScheme = [];  
-  //         fetch(`${BASE_URL}/id?hex=${color}`)
-  //         .then(response => response.json())
-  //         .then(function(colorObject) {
-  //         randColorsAPI.push(colorObject);
-  //         })
-  //       });      
-  //     ]);
-  //     return randColorsAPI;
-  //   }
-
-
-
-  //internal API
-
-// Add one or multiple colors to your favorites
-console.log(`${BASE_URL}/add`);
- export function addColorsToFavorites(colors) {
-  return sendRequest(`${BASE_URL}/add`, 'POST', colors);
-}
-

@@ -1,14 +1,16 @@
 import './SelectedFavoritesContainer';
-import {useState} from "react";
 import Color from '../Color/Color';
-import * as colorsAPI from '../../utilities/colors-api';
+import {useNavigate } from 'react-router-dom';
+import * as colorsAPIInternal from '../../utilities/colors-api-internal';
 
 export default function SelectedFavoritesContainer({selected, handleColorSelect}) {
-  const [added, setAdded] = useState(false);
+  // Use the navigate function to change routes programmatically
+  const navigate = useNavigate();
+
 
   async function handleAddToFavorites(selected) {
-    await colorsAPI.addColorsToFavorites(selected);
-    setAdded(true);
+    await colorsAPIInternal.addColorsToFavorites(selected);
+    navigate('/favorites');
     
 
   }
