@@ -1,5 +1,9 @@
+import sendRequest from './send-request';
+
 const COLOR_API_URL = 'https://www.thecolorapi.com';
 const BASE_URL = '/api/colors';
+
+
     
 
 
@@ -39,20 +43,8 @@ const BASE_URL = '/api/colors';
   //internal API
 
 // Add one or multiple colors to your favorites
- function addColorsToFavorites(color) {
-  return sendRequest(`${BASE_URL}/${color}`, 'POST');
+console.log(`${BASE_URL}/add`);
+ export function addColorsToFavorites(colors) {
+  return sendRequest(`${BASE_URL}/add`, 'POST', colors);
 }
 
-
-
-
-//Helper Functions 
-async function sendRequest(url, method = 'GET', payload = null) {
-    // Fetch accepts an options object as the 2nd argument
-    // used to include a data payload, set headers, etc. 
-    const options = { method };
-    if (payload) {
-      options.headers = { 'Content-Type': 'application/json' };
-      options.body = JSON.stringify(payload);
-    }
-}

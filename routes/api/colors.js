@@ -6,7 +6,7 @@ const colorsCtrl = require('../../controllers/api/colors');
 router.get('/', colorsCtrl.index);
 // GET /api/colors/:id
 router.get('/:id', colorsCtrl.show);
-// POST /api/colors/:color
-router.post('/colors/:color', colorsCtrl.addToFavorites);
+// POST /api/colors/add
+router.post('/add', colorsCtrl.addToFavorites);
 
 module.exports = router;

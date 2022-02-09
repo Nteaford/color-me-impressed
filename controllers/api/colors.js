@@ -18,9 +18,23 @@ async function show(req, res) {
 
 // Add a color to favorites
 async function addToFavorites(req, res) {
-  const favoriteColors = await Colors.getFavorites(req.user._id);
+  console.log("controller log req.body", req.body);
+  let colors = req.body;
+  console.log(colors);
+  await Color.addColorsToFavorites(colors);
+  
+
+  return;
+  
+  // const color = await Color.create(req.body)
+  // res.json( {
+  //   name: req.body.name
+
+  // })
+  
+  // const favoriteColors = await Colors.getFavorites(req.user._id);
   // The promise resolves to the document, which we already have
   // in the cart variable, so no need to create another variable...
-  await favoriteColors.addColorsToFavorites(req.params.id);
-  res.json(favoriteColors);
+  // await favoriteColors.addColorsToFavorites(req.params.id);
+  // res.json(favoriteColors);
 }

@@ -1,9 +1,17 @@
 import './SelectedFavoritesContainer';
+import {useState} from "react";
 import Color from '../Color/Color';
+import * as colorsAPI from '../../utilities/colors-api';
 
-export default function selectedFavoriesContainer({selected, handleColorSelect}) {
+export default function SelectedFavoritesContainer({selected, handleColorSelect}) {
+  const [added, setAdded] = useState(false);
 
+  async function handleAddToFavorites(selected) {
+    await colorsAPI.addColorsToFavorites(selected);
+    setAdded(true);
+    
 
+  }
 
     return(
        <div className='SelectedFavoritesContainer'>
@@ -14,7 +22,7 @@ export default function selectedFavoriesContainer({selected, handleColorSelect})
           </div>
 
         <button
-        onClick={()=> alert('click')}
+        onClick={() => handleAddToFavorites(selected)}
         > 
         Add Favorites to my Account</button>
 
