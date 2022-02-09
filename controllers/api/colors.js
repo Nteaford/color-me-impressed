@@ -1,4 +1,5 @@
 const Color = require('../../models/color');
+const mongoose = require('mongoose');
 
 module.exports = {
   index,
@@ -20,20 +21,33 @@ async function show(req, res) {
 async function addToFavorites(req, res) {
   const colors = req.body;
   colors.forEach(function (color) {
-    if (!Color.findOne({ closest_named_hex: color.name.closest_named_hex })) 
-      console.log("color", color)
-      const addedColor = new Color({
-        name: color.name,
-        hex: color.hex,
-        rgb: color.rgb,
-        hsl: color.hsl,
-        hsv: color.hsv,
-        xyz: color.xyz,
-        cmyk: color.cmyk,
-        contrast: color.contrast
-      })
-      addedColor.save();
-      console.log("new added color", addedColor);
-    });
+    let query = color.name.closest_named_hex
+    console.log(query);
+    console.log(storedColor);
+    storedColor = null;
+    console.log(storedColor);
+    Color.findOne({closest_named_hex:query}, function(err, storedColor) {
+      if (err) console.log(err);
+      if (storedColor) {
+        console.log("This has already been added", storedColor);
+      } else{ 
+        let addedColor = new Color({
+          name: color.name,
+          hex: color.hex,
+          rgb: color.rgb,
+          hsl: color.hsl,
+          hsv: color.hsv,
+          xyz: color.xyz,
+          cmyk: color.cmyk,
+          contrast: color.contrast
+        });
+        addedColor.save(function(err, addedColor) {
+          if (err) console.log(err);
+          console.log("New added color:", addedColor);
+          
+        });
+    }
+  });
+  });
   res.json(colors);
 }
