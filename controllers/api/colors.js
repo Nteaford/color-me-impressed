@@ -14,7 +14,7 @@ async function index(req, res) {
 
 async function deleteColor(req, res) {
   console.log("req params", req.params.id);
-  const colorToDelete = await Color.findOneAndDelete({id:req.params.id});
+  const colorToDelete = await Color.findOneAndDelete({_id:req.params.id});
   console.log("color to delete", colorToDelete);
   res.json(colorToDelete);
 }

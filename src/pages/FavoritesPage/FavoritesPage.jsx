@@ -8,8 +8,9 @@ import * as colorsAPIInternal from '../../utilities/colors-api-internal';
 export default function FavoritesPage() {
   const [favoriteColors, setFavoriteColors] = useState([]);
   const [favoritePalettes, setFavoritePalettes] = useState([]);
+  const [loaded, setLoaded] = useState(false);
 
-  useEffect(function () {
+  useEffect(async function () {
 
     async function getFavoriteColors() {
       const favoriteColorsFetch = await colorsAPIInternal.getFavoriteColors();
@@ -21,9 +22,10 @@ export default function FavoritesPage() {
     }
 
 
-    getFavoriteColors();
-    getFavoritePalettes();
-  }, []);
+     await getFavoriteColors();
+     await getFavoritePalettes();
+     setLoaded(true);
+  }, [loaded]);
 
 
 
