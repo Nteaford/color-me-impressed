@@ -4,6 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 import {getUser} from '../../utilities/users-service';
 import AuthPage from '../AuthPage/AuthPage';
 import ColorsPage from '../ColorsPage/ColorsPage';
+import PalettePage from '../PalettePage/PalettePage';
 import FavoritesPage from '../FavoritesPage/FavoritesPage';
 import NavBar from '../../components/NavBar/NavBar';
 
@@ -19,6 +20,7 @@ function App() {
           <Routes>
             <Route path="/colors" element={<ColorsPage />} />
             <Route path="/favorites" element={<FavoritesPage />} />
+            <Route path="/palette/:colorHex" element={<PalettePage />} />
           </Routes>
         </>
         :

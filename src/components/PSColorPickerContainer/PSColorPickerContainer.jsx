@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import './PSColorPickerContainer.css';
-import * as colorsAPI from '../../utilities/colors-api';
+import * as colorsAPIExternal from '../../utilities/colors-api-external';
 import Color from '../Color/Color';
 
 
@@ -27,7 +27,7 @@ export default function PSColorPickerContainer({ user, handleColorSelect }) {
 
 
   async function apiFetch(psColors) {
-    const randColorsAPI = await colorsAPI.fetchPSColors(psColors);
+    const randColorsAPI = await colorsAPIExternal.fetchPSColors(psColors);
     setRandColors(randColorsAPI);
     setStatus(true);
   }

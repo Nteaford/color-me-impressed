@@ -1,5 +1,6 @@
 import './FavoriteColorModal.css';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import * as colorsAPIInternal from '../../utilities/colors-api-internal';
 
 
@@ -7,9 +8,8 @@ export default function FavoriteColorModal({ color, hideFavoriteColorModal, show
 
 
     const showHideClassName = showFCM ? "modal display-block" : "modal display-none";
- 
 
-    //handleclickdelete{ colorsapi --> request to "/api/colors/delete"  route there that triggers controller to delete the dealio
+
     async function handleClickDelete(color) {
         let colorID = color._id;
         const deletedColor = await colorsAPIInternal.deleteColor(colorID);
@@ -17,21 +17,22 @@ export default function FavoriteColorModal({ color, hideFavoriteColorModal, show
         toggleStale();
     }
 
+
     return (
         <div className={showHideClassName}>
             <section className="modal-main">
-                <div>
+                <header>
                     <div>
-                        <button onClick={()=> hideFavoriteColorModal()}>
+                        <button onClick={() => hideFavoriteColorModal()}>
                             Close
-                            </button>
+                        </button>
                     </div>
+                </header>
                     <div
                         className='colorbox'
                         style={{
-                            backgroundColor: `${color.name.closest_named_hex}`
+                            backgroundColor: `${color.hex.value}`
                         }}>
-                        {color.name.value}
 
                     </div>
 
@@ -45,15 +46,14 @@ export default function FavoriteColorModal({ color, hideFavoriteColorModal, show
                         <br />
                     </div>
                     <div>
-                        <form action="/color/">
-                            <button>Generate a Scheme for this Color</button>
-                        </form>
+                        <Link to= {`/palette/${color.hex.clean}`}>
+                            <button> Generate a Scheme for this Color</button>
+                        </Link>
                     </div>
-                    <div>
-                        <button onClick={()=> handleClickDelete(color)}>Delete</button>
-                    </div>
-                </div>
+                <footer>
+                    <button onClick={() => handleClickDelete(color)}>Delete</button>
+                </footer>
             </section>
-        </div>
+        </div >
     );
 }
