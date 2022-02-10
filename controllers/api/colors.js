@@ -3,8 +3,8 @@ const mongoose = require('mongoose');
 
 module.exports = {
   index,
-  show,
-  addToFavorites
+  addToFavorites,
+  deleteColor,
 };
 
 async function index(req, res) {
@@ -12,9 +12,11 @@ async function index(req, res) {
   res.json(colors);
 }
 
-async function show(req, res) {
-  const color = await Color.findById(req.params.id);
-  res.json(color);
+async function deleteColor(req, res) {
+  console.log("req params", req.params.id);
+  const colorToDelete = await Color.findOneAndDelete({id:req.params.id});
+  console.log("color to delete", colorToDelete);
+  res.json(colorToDelete);
 }
 
 // Add a color to the database

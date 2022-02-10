@@ -11,9 +11,9 @@ export default function NavBar({user, setUser}) {
 
     return(
             <nav className="navbar navbar-dark bg-dark fixed-top"> 
-                <Link className="navbuttons" to="/colors"> Colors and Color Schemes </Link>
+                <Link className="navbuttons" to="/colors"> Color Finder </Link>
                 &nbsp; | &nbsp;
-                <Link className="navbuttons" to="favorites"> My Favorites </Link>
+                <Link className="navbuttons" to="favorites"> My Saved Colors / Generate Schemes </Link>
                 &nbsp; | &nbsp;
                 <div className="navbuttons">
                 <p className="navwelcome">Welcome {user.name}! </p>

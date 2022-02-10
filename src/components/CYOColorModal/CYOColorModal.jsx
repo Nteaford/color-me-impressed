@@ -14,7 +14,7 @@ export default function CYOColorModal({ hideModal, show, fetchCYOPick, cyoColor,
 
 
     return (
-        <div className={showHideClassName}>
+        <div className= {showHideClassName}>
             <section className="modal-main">
                 <div className="CYOCP">
                     <form action="/color/">

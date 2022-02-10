@@ -1,12 +1,12 @@
 import './FavoriteColor.css';
 
 
-export default function FavoriteColor({color, handleFavoriteSelect}) {
+export default function FavoriteColor({color, showFavoriteColorModal}) {
  
     return(
     <div 
         className='colorbox' 
-        onClick={()=> handleFavoriteSelect(color)}
+        onClick={() => showFavoriteColorModal(color)}
         style={{
         backgroundColor: `${color.name.closest_named_hex}`
         }}

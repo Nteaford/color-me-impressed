@@ -7,6 +7,10 @@ const PALETTES_URL = '/api/palettes';
  export function addColorsToFavorites(colors) {
   return sendRequest(`${COLORS_URL}/add`, 'POST', colors);
 }
+// Delete a colors from your favorites
+ export function deleteColor(colorID) {
+  return sendRequest(`${COLORS_URL}/${colorID}`, 'DELETE');
+}
 
 
 // Collect saved colors from Database
