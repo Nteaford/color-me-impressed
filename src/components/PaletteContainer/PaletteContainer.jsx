@@ -6,10 +6,10 @@ export default function PaletteContainer({ colors }) {
 
     
     return (
-        <>
+        <div className='PaletteContainer'>
         
          {colors && colors.map((color, idx) => <PaletteColor color={color} key={idx} />)}
-        </>
+        </div>
         
     )
 }

@@ -8,10 +8,10 @@ export default function Color({color, handleColorSelect}) {
         className='colorbox' 
         onClick={()=> handleColorSelect(color)}
         style={{
-        backgroundColor: `${color.name.closest_named_hex}`
+        backgroundColor: `${color.hex.value}`
         }}
     >
-        <p>{color.name.value}</p>
+        <p>{color.hex.value}</p>
     </div> 
  );
 }

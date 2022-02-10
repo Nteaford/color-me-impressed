@@ -34,11 +34,11 @@ const COLOR_API_URL = 'https://www.thecolorapi.com';
       return splitPaletteResponse;
     }
   export async function fetchTriPalette(colorHex) {
-      const triPaletteResponse = await fetch(`${COLOR_API_URL}/scheme?hex=${colorHex}&mode=triad&count=5`).then(res => res.json())
+      const triPaletteResponse = await fetch(`${COLOR_API_URL}/scheme?hex=${colorHex}&mode=triad&count=3`).then(res => res.json())
       return triPaletteResponse;
     }
   export async function fetchQuadPalette(colorHex) {
-      const quadPaletteResponse = await fetch(`${COLOR_API_URL}/scheme?hex=${colorHex}&mode=quad&count=5`).then(res => res.json())
+      const quadPaletteResponse = await fetch(`${COLOR_API_URL}/scheme?hex=${colorHex}&mode=quad&count=4`).then(res => res.json())
       return quadPaletteResponse;
     }
   

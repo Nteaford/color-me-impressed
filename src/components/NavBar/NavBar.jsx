@@ -15,8 +15,6 @@ export default function NavBar({user, setUser}) {
                 &nbsp; | &nbsp;
                 <Link className="navbuttons" to="favorites"> My Saved Colors / Generate Schemes </Link>
                 &nbsp; | &nbsp;
-                <Link className="navbuttons" to="palette"> Palette </Link>
-                &nbsp; | &nbsp;
                 <div className="navbuttons">
                 <p className="navwelcome">Welcome {user.name}! </p>
                 &nbsp;
