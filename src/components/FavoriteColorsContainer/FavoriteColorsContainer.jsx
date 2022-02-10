@@ -3,7 +3,7 @@ import { useState } from "react";
 import FavoriteColor from '../FavoriteColor/FavoriteColor';
 import FavoriteColorModal from '../FavoriteColorModal/FavoriteColorModal';
 
-export default function FavoriteColorsContainer({ favoriteColors }) {
+export default function FavoriteColorsContainer({ favoriteColors, toggleStale }) {
   const [showFCM, setShowFCM] = useState(false);
   const [colorSelected, setColorSelected] = useState('');
 
@@ -14,6 +14,7 @@ export default function FavoriteColorsContainer({ favoriteColors }) {
 
   function hideFavoriteColorModal() {
     setShowFCM(false);
+    setColorSelected("");
   };
 
 
@@ -24,7 +25,7 @@ export default function FavoriteColorsContainer({ favoriteColors }) {
         {favoriteColors.map((color, idx) => <FavoriteColor color={color} key={idx} showFavoriteColorModal={showFavoriteColorModal} />
         )}
         {colorSelected && 
-           <FavoriteColorModal color={colorSelected} hideFavoriteColorModal={hideFavoriteColorModal} showFCM={showFCM} />
+           <FavoriteColorModal color={colorSelected} hideFavoriteColorModal={hideFavoriteColorModal} showFCM={showFCM} toggleStale={toggleStale} />
           
         }
 

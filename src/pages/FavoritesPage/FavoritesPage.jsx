@@ -8,7 +8,7 @@ import * as colorsAPIInternal from '../../utilities/colors-api-internal';
 export default function FavoritesPage() {
   const [favoriteColors, setFavoriteColors] = useState([]);
   const [favoritePalettes, setFavoritePalettes] = useState([]);
-  const [loaded, setLoaded] = useState(false);
+  const [isStale, setIsStale] = useState(false);
 
   useEffect(async function () {
 
@@ -22,10 +22,15 @@ export default function FavoritesPage() {
     }
 
 
-     await getFavoriteColors();
-     await getFavoritePalettes();
-     setLoaded(true);
-  }, [loaded]);
+     getFavoriteColors();
+     getFavoritePalettes();
+  }, [isStale]);
+
+  function toggleStale () {
+    setIsStale(!isStale);
+  }
+
+
 
 
 
@@ -45,7 +50,7 @@ export default function FavoritesPage() {
         <h3>My Saved Colors</h3>
         <br />
         <br />
-        <FavoriteColorsContainer favoriteColors={favoriteColors} />
+        <FavoriteColorsContainer favoriteColors={favoriteColors} toggleStale={toggleStale} />
       </div>
       </main>
 
@@ -55,7 +60,7 @@ export default function FavoritesPage() {
         <h3>My Palettes</h3>
         <br />
         <br />
-        <FavoritePalettesContainer favoriteColors={favoriteColors} />
+        <FavoritePalettesContainer favoriteColors={favoriteColors}  />
       </aside>
 
     </div>

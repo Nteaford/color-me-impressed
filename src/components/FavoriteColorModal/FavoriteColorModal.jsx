@@ -3,7 +3,7 @@ import { useState } from 'react';
 import * as colorsAPIInternal from '../../utilities/colors-api-internal';
 
 
-export default function FavoriteColorModal({ color, hideFavoriteColorModal, showFCM }) {
+export default function FavoriteColorModal({ color, hideFavoriteColorModal, showFCM, toggleStale }) {
 
 
     const showHideClassName = showFCM ? "modal display-block" : "modal display-none";
@@ -13,8 +13,8 @@ export default function FavoriteColorModal({ color, hideFavoriteColorModal, show
     async function handleClickDelete(color) {
         let colorID = color._id;
         const deletedColor = await colorsAPIInternal.deleteColor(colorID);
-        console.log("end of process", deletedColor);
         hideFavoriteColorModal();
+        toggleStale();
     }
 
     return (
