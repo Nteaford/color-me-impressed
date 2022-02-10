@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import PaletteContainer from '../../components/PaletteContainer/PaletteContainer';
 import * as colorsAPIExternal from '../../utilities/colors-api-external';
+import * as colorsAPIInternal from '../../utilities/colors-api-internal';
 
 export default function PalettePage() {
     const { colorHex } = useParams();
@@ -49,6 +50,10 @@ export default function PalettePage() {
         setSquarePalette(quadPaletteFetch);
     }
 
+    async function handleAddPalette(palette) {
+        await colorsAPIInternal.addPaletteToFavorites(palette);
+        
+    }
 
 
     return (

@@ -4,7 +4,10 @@ const paletteCtrl = require('../../controllers/api/palette');
 
 // GET /api/palette
 router.get('/', paletteCtrl.index);
-// GET /api/palette/:id
-router.get('/:id', paletteCtrl.show);
+
+// POST /api/colors/add
+router.post('/add', paletteCtrl.addPalette);
+// DELETE /api/colors/:id
+router.delete('/:id', paletteCtrl.deletePalette);
 
 module.exports = router;
