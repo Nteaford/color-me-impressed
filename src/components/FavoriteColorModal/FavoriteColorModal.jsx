@@ -9,7 +9,6 @@ export default function FavoriteColorModal({ color, hideFavoriteColorModal, show
 
     const showHideClassName = showFCM ? "modal display-block" : "modal display-none";
 
-    const colorHex = color.name.closest_named_hex.substring(1);
 
     async function handleClickDelete(color) {
         let colorID = color._id;
@@ -32,18 +31,22 @@ export default function FavoriteColorModal({ color, hideFavoriteColorModal, show
                     <div
                         className='colorbox'
                         style={{
-                            backgroundColor: `${color.name.closest_named_hex}`
+                            backgroundColor: `${color.hex.value}`
                         }}>
 
                     </div>
 
                     <div>
                         <br />
-                        Hex Value: {color.name.closest_named_hex}
+                        Hex Value: {color.hex.value}
+                        <br />
+                        RGB Value: {color.rgb.value}
+                        <br />
+                        CMYK Value: {color.cmyk.value}
                         <br />
                     </div>
                     <div>
-                        <Link to= {`/palette/${colorHex}`}>
+                        <Link to= {`/palette/${color.hex.clean}`}>
                             <button> Generate a Scheme for this Color</button>
                         </Link>
                     </div>
