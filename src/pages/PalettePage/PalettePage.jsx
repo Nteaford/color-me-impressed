@@ -13,40 +13,40 @@ export default function PalettePage() {
     const [squarePalette, setSquarePalette] = useState([]);
 
 
-    useEffect(async function (colorHex) {
-
-        async function fetchMonoPalette() {
-            const monoPaletteFetch = await colorsAPIExternal.fetchMonoPalette();
-            setMonoPalette(monoPaletteFetch);
-        }
-        async function fetchAnalPalette() {
-            const analPaletteFetch = await colorsAPIExternal.fetchAnalPalette();
-            setAnalPalette(analPaletteFetch);
-        }
-        async function fetchComplementaryPalette() {
-            const compPaletteFetch = await colorsAPIExternal.fetchCompPalette();
-            setCompPalette(compPaletteFetch);
-        }
-        async function fetchSplitPalette() {
-            const splitPaletteFetch = await colorsAPIExternal.fetchSplitPalette();
-            setSplitACPalette(splitPaletteFetch);
-        }
-        async function fetchTriPalette() {
-            const triPaletteFetch = await colorsAPIExternal.fetchTriPalette();
-            setTriadicPalette(triPaletteFetch);
-        }
-        async function fetchQuadPalette() {
-            const quadPaletteFetch = await colorsAPIExternal.fetchQuadPalette();
-            setSquarePalette(quadPaletteFetch);
-        }
-
-        fetchMonoPalette();
-        fetchAnalPalette();
-        fetchComplementaryPalette();
-        fetchSplitPalette();
-        fetchTriPalette();
-        fetchQuadPalette();
+    useEffect(function () {
+        
+        fetchMonoPalette(colorHex);
+        fetchAnalPalette(colorHex);
+        fetchComplementaryPalette(colorHex);
+        fetchSplitPalette(colorHex);
+        fetchTriPalette(colorHex);
+        fetchQuadPalette(colorHex);
     }, []);
+    
+    async function fetchMonoPalette(colorHex) {
+        const monoPaletteFetch = await colorsAPIExternal.fetchMonoPalette(colorHex);
+        setMonoPalette(monoPaletteFetch);
+    }
+    async function fetchAnalPalette(colorHex) {
+        const analPaletteFetch = await colorsAPIExternal.fetchAnalPalette(colorHex);
+        setAnalPalette(analPaletteFetch);
+    }
+    async function fetchComplementaryPalette(colorHex) {
+        const compPaletteFetch = await colorsAPIExternal.fetchCompPalette(colorHex);
+        setCompPalette(compPaletteFetch);
+    }
+    async function fetchSplitPalette(colorHex) {
+        const splitPaletteFetch = await colorsAPIExternal.fetchSplitPalette(colorHex);
+        setSplitACPalette(splitPaletteFetch);
+    }
+    async function fetchTriPalette(colorHex) {
+        const triPaletteFetch = await colorsAPIExternal.fetchTriPalette(colorHex);
+        setTriadicPalette(triPaletteFetch);
+    }
+    async function fetchQuadPalette(colorHex) {
+        const quadPaletteFetch = await colorsAPIExternal.fetchQuadPalette(colorHex);
+        setSquarePalette(quadPaletteFetch);
+    }
 
 
 

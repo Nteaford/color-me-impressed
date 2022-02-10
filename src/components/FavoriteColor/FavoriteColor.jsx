@@ -8,10 +8,10 @@ export default function FavoriteColor({color, showFavoriteColorModal}) {
         className='colorbox' 
         onClick={() => showFavoriteColorModal(color)}
         style={{
-        backgroundColor: `${color.hex.value}`
+        backgroundColor: `${color.name.closest_named_hex}`
         }}
     >
-        <p>{color.hex.value}</p>
+        <p>{color.name.value}</p>
     </div> 
  );
 }
