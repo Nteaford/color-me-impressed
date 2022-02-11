@@ -22,11 +22,11 @@ export default function FavoritesPage() {
     }
 
 
-     getFavoriteColors();
-     getFavoritePalettes();
+    getFavoriteColors();
+    getFavoritePalettes();
   }, [isStale]);
 
-  function toggleStale () {
+  function toggleStale() {
     setIsStale(!isStale);
   }
 
@@ -37,30 +37,30 @@ export default function FavoritesPage() {
   return (
     <div className="favoritespage">
       <main>
-      <br />
-      <br />
-      <br />
-      <h1>
-        My Colors/Palettes Page
-      </h1>
-      <br />
-      <br />
+        <br />
+        <br />
+        <br />
+        <h1>
+          My Colors/Palettes Page
+        </h1>
+        <br />
+        <br />
 
-      <div>
-        <h3>My Saved Colors</h3>
-        <br />
-        <br />
-        <FavoriteColorsContainer favoriteColors={favoriteColors} toggleStale={toggleStale} />
-      </div>
+        <div>
+          <h3>My Saved Colors</h3>
+          <br />
+          <br />
+            <FavoriteColorsContainer favoriteColors={favoriteColors} toggleStale={toggleStale} />
+        </div>
       </main>
 
       <aside>
-      <br />
-      <br />
+        <br />
+        <br />
         <h3>My Palettes</h3>
         <br />
         <br />
-        <FavoritePalettesContainer favoriteColors={favoriteColors}  />
+        <FavoritePalettesContainer favoriteColors={favoriteColors} />
       </aside>
 
     </div>

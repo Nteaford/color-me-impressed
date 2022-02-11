@@ -67,13 +67,14 @@ export default function PalettePage() {
             <br />
             <br />
 
-            <div>Generated Palettes</div>
+            <div>Generated Palettes  https://blog.hubspot.com/marketing/color-theory-design </div>
 
             <div className="PalattePage">
 
                 <div>
                     <h3>Monochromatic Scheme </h3>
                     <PaletteContainer colors={monoPalette.colors} />
+                    <button onClick={() => handleAddPalette(monoPalette)}> Save Palette</button>
                     <p>
                         Monochromatic color schemes use a single color with varying shades and tints to produce a consistent look and feel. Although it lacks color contrast, it often ends up looking very clean and polished. It also allows you to easily change the darkness and lightness of your colors.
                     </p>
@@ -86,6 +87,7 @@ export default function PalettePage() {
                 <div>
                     <h3>Analogous Scheme </h3>
                     <PaletteContainer colors={analPalette.colors} />
+                    <button onClick={() => handleAddPalette(analPalette)}> Save Palette</button>
                     <p>
                         Analogous color schemes are formed by pairing one main color with the two colors directly next to it on the color wheel. Analogous structures do not create themes with high contrasting colors, so they're typically used to create a softer, less contrasting design. For example, you could use an analogous structure to create a color scheme with autumn or spring colors.
                     </p>
@@ -98,6 +100,7 @@ export default function PalettePage() {
                 <div>
                     <h3>Complementary Scheme </h3>
                     <PaletteContainer colors={compPalette.colors} />
+                    <button onClick={() => handleAddPalette(compPalette)}> Save Palette</button>
                     <p>
                         Complementary color schemes are based on the use of two colors directly across from each other on the color wheel and relevant tints of those colors. The complementary color scheme provides the greatest amount of color contrast. Because of this, you should be careful about how you use the complementary colors in a scheme.
                     </p>
@@ -110,6 +113,7 @@ export default function PalettePage() {
                 <div>
                     <h3>Split Complementary Scheme </h3>
                     <PaletteContainer colors={splitACPalette.colors} />
+                    <button onClick={() => handleAddPalette(splitACPalette)}> Save Palette</button>
                     <p>
                         A split complementary scheme includes one dominant color and the two colors directly adjacent to the dominant color's complement. This creates a more nuanced color palette than a complementary color scheme while still retaining the benefits of contrasting colors. The split complementary color scheme can be difficult to balance because unlike analogous or monochromatic color schemes, the colors used all provide contrast (similar to the complementary scheme).
                     </p>
@@ -122,6 +126,7 @@ export default function PalettePage() {
                 <div>
                     <h3>Triadic Scheme </h3>
                     <PaletteContainer colors={triadicPalette.colors} />
+                    <button onClick={() => handleAddPalette(triadicPalette)}> Save Palette</button>
                     <p>
                         Triadic color schemes offer high contrasting color schemes while retaining the same tone. Triadic color schemes are created by choosing three colors that are equally placed in lines around the color wheel. Triad color schemes are useful for creating high contrast between each color in a design, but they can also seem overpowering if all of your colors are chosen on the same point in a line around the color wheel.
                     </p>
@@ -134,6 +139,7 @@ export default function PalettePage() {
                 <div>
                     <h3>Square Scheme </h3>
                     <PaletteContainer colors={squarePalette.colors} />
+                    <button onClick={() => handleAddPalette(squarePalette)}> Save Palette</button>
                     <p>
                         The square color scheme uses four colors equidistant from each other on the color wheel to create a square or diamond shape. While this evenly-spaced color scheme provides substantial contrast to your design, it’s a good idea to select one dominant color rather than trying to balance all four.
                     </p>

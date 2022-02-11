@@ -9,9 +9,8 @@ export default function SelectedFavoritesContainer({selected, handleColorSelect}
 
 
   async function handleAddToFavorites(selected) {
-    await colorsAPIInternal.addColorsToFavorites(selected);
+    let saveStatus = await colorsAPIInternal.addColorsToFavorites(selected);
     navigate('/favorites');
-    
 
   }
 

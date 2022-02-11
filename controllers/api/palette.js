@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 
 module.exports = {
   index,
-  show,
   addPalette,
   deletePalette
 };
@@ -20,35 +19,27 @@ async function deletePalette(req, res) {
   res.json(paletteToDelete);
 }
 
-// Add a color to the database
-// async function addPalette(req, res) {
-//   const palette = req.body;
-//   colors.forEach(function (color) {
-//     let query = color.name.closest_named_hex
-//     console.log(query);
-//     storedPalette = null;
-//     Palette.findOne({ "name.closest_named_hex" : query }, function(err, storedPalette) {
-//       if (err) console.log(err);
-//       if (storedPalette) {
-//         console.log("This has already been added", storedPalette);
-//       } else{ 
-//         let addedPalette = new Palette({
-//           name: color.name,
-//           hex: color.hex,
-//           rgb: color.rgb,
-//           hsl: color.hsl,
-//           hsv: color.hsv,
-//           xyz: color.xyz,
-//           cmyk: color.cmyk,
-//           contrast: color.contrast
-//         });
-//         addedPalette.save(function(err, addedPalette) {
-//           if (err) console.log(err);
-//           console.log("New added color:", addedPalette);
+// Add a palette to the database
+async function addPalette(req, res) {
+  const palette = req.body;
+  let query = palette.color;
+    console.log(query);
+    Palette.findOne({ "color" : query }, function(err, storedPalette) {
+      if (err) console.log(err);
+      if (storedPalette) {
+        console.log("This has already been added", storedPalette);
+      } else{ 
+        let addedPalette = new Palette({
+          user: req.user._id,
+          colors: palette.colors,
+          mode: palette.mode,
+        });
+        addedPalette.save(function(err, addedPalette) {
+          if (err) console.log(err);
+          console.log("New added palette:", addedPalette);
           
-//         });
-//     }
-//   });
-//   });
-//   res.json(colors);
-// }
+        });
+    }
+  });
+  res.json(palette);
+}

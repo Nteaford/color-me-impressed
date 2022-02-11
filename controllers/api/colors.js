@@ -23,15 +23,17 @@ async function deleteColor(req, res) {
 async function addToFavorites(req, res) {
   const colors = req.body;
   colors.forEach(function (color) {
-    let query = color.name.closest_named_hex
+    //if saving is broken, change line below to color.name.closest_named_value and line 30 query value to "name.closest_named_hex"
+    let query = color.hex.value
     console.log(query);
     storedColor = null;
-    Color.findOne({ "name.closest_named_hex" : query }, function(err, storedColor) {
+    Color.findOne({ "hex.value" : query }, function(err, storedColor) {
       if (err) console.log(err);
       if (storedColor) {
         console.log("This has already been added", storedColor);
       } else{ 
         let addedColor = new Color({
+          user:req.user._id,
           name: color.name,
           hex: color.hex,
           rgb: color.rgb,
@@ -49,5 +51,5 @@ async function addToFavorites(req, res) {
     }
   });
   });
-  res.json(colors);
+  res.json(true);
 }

@@ -15,33 +15,6 @@ const colorSchema = new Schema({
 });
 
 
-// colorSchema.statics.getFavorites = async function(userId) {
-//   const favoriteColors = await this.find({user: userId}).exec();
-//   return favoriteColors;
-// }
-
-// colorSchema.methods.add = async function(colors) {
-//   console.log(colors);
-//   colors.forEach(function(color) {
-//     if (mongoose.model('Color').findOne({closest_named_hex: color.name.closest_named_hex})) {
-//       return;
-
-//     } else {
-//       const addedColor = colorSchema.create({
-//         name: color.name,
-//         hex: color.hex,
-//         rgb: color.rgb,
-//         hsl: color.hsl,
-//         hsv: color.hsv,
-//         xyz: color.xyz,
-//         cmyk: color.cmyk,
-//         contrast: color.contrast
-//       })
-//       console.log(addedColor);
-//     };
-// });
-// }
-
 
 
 module.exports = mongoose.model('Color', colorSchema);
