@@ -5,6 +5,7 @@
     grid-template-columns: 4fr 1fr;
     grid-template-rows: 1fr;
     border-radius: 2vmin;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .colorspage aside {
