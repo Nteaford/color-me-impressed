@@ -1,5 +1,3 @@
-import './FavoriteColor.css';
-
 
 export default function FavoriteColor({color, showFavoriteColorModal}) {
  

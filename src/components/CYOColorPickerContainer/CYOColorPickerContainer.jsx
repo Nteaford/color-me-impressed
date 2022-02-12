@@ -31,10 +31,10 @@ export default function CYOColorPickerContainer({handleColorSelect}) {
             className='colorbox'
             onClick={()=> handleColorSelect(cyoColor)}
             style={{
-              backgroundColor: `${cyoColor.name.closest_named_hex}`
+              backgroundColor: `${cyoColor.hex.value}`
             }}
           >
-            <p>{cyoColor.name.value}</p>
+            <p>{cyoColor.hex.value}</p>
           </div>
         </div>
 

@@ -1,4 +1,3 @@
-import './PaletteColor.css';
 
 export default function PaletteColor({color}) {
     return(
