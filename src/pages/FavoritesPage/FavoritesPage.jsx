@@ -10,7 +10,7 @@ export default function FavoritesPage() {
   const [favoritePalettes, setFavoritePalettes] = useState([]);
   const [isStale, setIsStale] = useState(false);
 
-  useEffect(async function () {
+  useEffect(function () {
 
     async function getFavoriteColors() {
       const favoriteColorsFetch = await colorsAPIInternal.getFavoriteColors();
@@ -60,7 +60,7 @@ export default function FavoritesPage() {
         <h3>My Palettes</h3>
         <br />
         <br />
-        <FavoritePalettesContainer favoriteColors={favoriteColors} />
+        <FavoritePalettesContainer favoritePalettes={favoritePalettes} toggleStale={toggleStale} />
       </aside>
 
     </div>

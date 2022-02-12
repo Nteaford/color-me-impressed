@@ -10,7 +10,8 @@ const colorSchema = new Schema({
   hsv:  {h: {type: Number }, s: {type: Number }, l: {type: Number }, fraction: {h:{type:Number}, s:{type:Number}, v:{type:Number} }, value:{type: String}},
   xyz:  {x: {type: Number }, y: {type: Number }, z: {type: Number }, fraction: {x:{type:Number}, y:{type:Number}, z:{type:Number} }, value:{type: String}},
   cmyk:  {c: {type: Number }, m: {type: Number }, y: {type: Number }, k: {type: Number }, fraction: {c:{type:Number}, m:{type:Number}, y:{type:Number}, k:{type:Number} }, value:{type: String}},
-  contrast: {value: {type:String}}
+  contrast: {value: {type:String}},
+
 });
 
 

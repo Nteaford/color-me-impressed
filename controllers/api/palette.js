@@ -22,24 +22,20 @@ async function deletePalette(req, res) {
 // Add a palette to the database
 async function addPalette(req, res) {
   const palette = req.body;
-  let query = palette.color;
-    console.log(query);
-    Palette.findOne({ "color" : query }, function(err, storedPalette) {
-      if (err) console.log(err);
-      if (storedPalette) {
-        console.log("This has already been added", storedPalette);
+ 
+  console.log("updated palette", palette);
+  let query = palette.colors;
+    console.log("palette.colors", query);
+    const p = await Palette.findOne({ colors : query });
+      if (p) {console.log("This has already been added");
       } else{ 
-        let addedPalette = new Palette({
+        await Palette.create({
           user: req.user._id,
           colors: palette.colors,
           mode: palette.mode,
         });
-        addedPalette.save(function(err, addedPalette) {
-          if (err) console.log(err);
-          console.log("New added palette:", addedPalette);
-          
-        });
     }
-  });
-  res.json(palette);
-}
+    res.json(true);
+  }
+
+

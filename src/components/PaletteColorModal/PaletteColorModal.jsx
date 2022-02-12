@@ -1,20 +1,23 @@
-import './FavoriteColorModal.css';
+import './PaletteColorModal.css';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import * as colorsAPIInternal from '../../utilities/colors-api-internal';
 
 
-export default function FavoriteColorModal({ color, hideFavoriteColorModal, showFCM, toggleStale }) {
+export default function PaletteColorModal({ color, hideFavoriteColorModal, showFCM
+    // , toggleStale
+ }) {
 
 
     const showHideClassName = showFCM ? "modal display-block" : "modal display-none";
 
 
-    async function handleClickDelete(color) {
-        let colorID = color._id;
-        const deletedColor = await colorsAPIInternal.deleteColor(colorID);
-        hideFavoriteColorModal();
-        toggleStale();
-    }
+    // async function handleClickDelete(color) {
+    //     let colorID = color._id;
+    //     const deletedColor = await colorsAPIInternal.deleteColor(colorID);
+    //     hideFavoriteColorModal();
+    //     toggleStale();
+    // }
 
 
     return (
@@ -44,14 +47,9 @@ export default function FavoriteColorModal({ color, hideFavoriteColorModal, show
                         CMYK Value: {color.cmyk.value}
                         <br />
                     </div>
-                    <div>
-                        <Link to= {`/palette/${color.hex.clean}`}>
-                            <button> Generate a Scheme for this Color</button>
-                        </Link>
-                    </div>
-                <footer>
+                {/* <footer>
                     <button onClick={() => handleClickDelete(color)}>Delete</button>
-                </footer>
+                </footer> */}
             </section>
         </div >
     );
