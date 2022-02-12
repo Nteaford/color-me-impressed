@@ -14,11 +14,16 @@ export default function PSColorPickerContainer({ user, handleColorSelect }) {
     function generatePSColors() {
       //generate random hex code 
       let randomColor = Math.floor(Math.random() * 16777215).toString(16);
+      while (randomColor.length < 6) {
+        randomColor = Math.floor(Math.random() * 16777215).toString(16);
+      }
+      console.log(randomColor);
       psColors.push(randomColor);
       //base case
       if (psColors.length < 16) {
         return generatePSColors();
       } else {
+        console.log(psColors);
         return psColors;
       }
     }

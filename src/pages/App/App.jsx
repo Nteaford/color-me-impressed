@@ -18,6 +18,7 @@ function App() {
         <>
           <NavBar user={user} setUser={setUser} />
           <Routes>
+            <Route path="/" element={<ColorsPage />} />
             <Route path="/colors" element={<ColorsPage />} />
             <Route path="/favorites" element={<FavoritesPage />} />
             <Route path="/palette/:colorHex" element={<PalettePage />} />
