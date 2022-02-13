@@ -18,10 +18,12 @@ export default function SelectedFavoritesContainer({selected, handleColorSelect}
        <div className='SelectedFavoritesContainer'>
         <br />
         <h1> Selected Favorites</h1>
+        <br />
         <div className="PSCPC">
             {selected.map((color, idx) => <Color color={color} key={idx} handleColorSelect={handleColorSelect} />)}
           </div>
 
+          <br />
         <button
         onClick={() => handleAddToFavorites(selected)}
         > 

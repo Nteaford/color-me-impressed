@@ -7,7 +7,7 @@
   --grey: #808080;
   --button-purple: #4A3A71;
   --roof-teracotta: #A44A4A;
-  --text-light: #968c84;
+  --text-light: #DDDDDD;
   --text-dark: #615954;
 }
 
@@ -22,7 +22,7 @@ body {
   sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--mercury);
+  background-image: url("../public/backgroundmain.png");
   padding: 2vmin;
   height: 100vh;
 }

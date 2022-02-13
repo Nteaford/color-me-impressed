@@ -13,4 +13,5 @@
 .navbar{
     background-color: #4A3A71;
     color: snow;
+    border-bottom: 3px groove #4A3A71;
 }

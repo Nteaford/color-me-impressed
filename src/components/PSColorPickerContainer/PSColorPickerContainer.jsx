@@ -45,8 +45,10 @@ export default function PSColorPickerContainer({ user, handleColorSelect }) {
       {status ?
 
         <div>
-          <h4>Check out these Colors!</h4>
-          <hr />
+          <br />
+          <br />
+          <br />
+
           <div className="PSCPC">
             {randColors.map((color, idx) => <Color color={color} key={idx} handleColorSelect={handleColorSelect} />)}
           </div>

@@ -3,7 +3,7 @@ import { useState } from 'react';
 import CYOColorModal from '../CYOColorModal/CYOColorModal';
 import * as colorsAPIExternal from '../../utilities/colors-api-external';
 
-export default function CYOColorPickerContainer({handleColorSelect}) {
+export default function CYOColorPickerContainer({ handleColorSelect }) {
   const [show, setShow] = useState(false);
   const [cyoColor, setCYOColor] = useState(null);
 
@@ -29,7 +29,7 @@ export default function CYOColorPickerContainer({handleColorSelect}) {
         <div className='CYOCP'>
           <div
             className='colorbox'
-            onClick={()=> handleColorSelect(cyoColor)}
+            onClick={() => handleColorSelect(cyoColor)}
             style={{
               backgroundColor: `${cyoColor.hex.value}`
             }}
@@ -41,7 +41,7 @@ export default function CYOColorPickerContainer({handleColorSelect}) {
 
         :
 
-        <div> Select a Color</div>
+        <br />
       }
       <CYOColorModal setShow={setShow} show={show} hideModal={hideModal} fetchCYOPick={fetchCYOPick} cyoColor={cyoColor} setCYOColor={setCYOColor} />
       <button type="button" onClick={showModal}>

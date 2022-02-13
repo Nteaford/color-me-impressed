@@ -2,4 +2,5 @@
     display: flex;
     align-content: space-between;
     padding-top: 10px;
+    height: 100%;
 }

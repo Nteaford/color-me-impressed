@@ -2,7 +2,7 @@
     padding-top: 1%;
     height: 100%;
     display: grid;
-    grid-template-columns: 4fr 1fr;
+    grid-template-columns: 3fr 2fr;
     grid-template-rows: 1fr;
     border-radius: 2vmin;
 }
@@ -11,12 +11,13 @@
     display: flex;
     padding-right: 1%;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
-    margin: 3vmin 2vmin;
+    margin: 3vmin 1vmin;
     border-radius: 5px;
-    background-color: var(--alto);
-    height: 100%;
+    background-image: url("../../../public/backgroundtile.png");
+    height: 100vh;
+    border: 1px groove var(--alto) ;
   }
   .colorbox{
     display: flex;

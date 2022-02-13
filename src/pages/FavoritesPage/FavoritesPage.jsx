@@ -47,7 +47,7 @@ export default function FavoritesPage() {
         <br />
 
         <div>
-          <h3>My Saved Colors</h3>
+          <h3>My Colors</h3>
           <br />
           <br />
             <FavoriteColorsContainer favoriteColors={favoriteColors} toggleStale={toggleStale} />
@@ -55,9 +55,7 @@ export default function FavoritesPage() {
       </main>
 
       <aside>
-        <br />
         <h3>My Palettes</h3>
-        <br />
         <FavoritePalettesContainer favoritePalettes={favoritePalettes} toggleStale={toggleStale} />
       </aside>
 
