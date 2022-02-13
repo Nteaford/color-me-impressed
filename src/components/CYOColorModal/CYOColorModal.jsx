@@ -14,23 +14,27 @@ export default function CYOColorModal({ hideModal, show, fetchCYOPick, cyoColor,
 
 
     return (
-        <div className= {showHideClassName}>
+        <div className={showHideClassName}>
             <section className="modal-main">
-                <div className="CYOCP">
-                    <form action="/color/">
-                        <label htmlFor="colorpicker">Select a color from this picker:</label>
-                        <input
-                            type="color"
-                            id="colorpicker-hex"
-                            value={`#${selectedColor}`}
-                            placeholder="#0000ff"
-                            onChange={handleChange}
-                        />
-                        <button type="button" onClick={() =>fetchCYOPick(selectedColor)}>
-                            Select this Color
-                        </button>
-                    </form>
-                </div>
+                <button className="modal-close" type="button" onClick={() => hideModal()}>
+                    X
+                </button>
+                <h1>Select a color from this picker:</h1>
+                <br />
+                <input
+                    className='modal-select-color'
+                    type="color"
+                    id="colorpicker-hex"
+                    value={`#${selectedColor}`}
+                    placeholder="#0000ff"
+                    onChange={handleChange}
+                />
+                <br />
+                <br />
+                <br />
+                <button className="modal-select" type="button" onClick={() => fetchCYOPick(selectedColor)}>
+                    Select this Color
+                </button>
             </section>
         </div>
     );

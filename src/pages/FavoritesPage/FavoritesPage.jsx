@@ -56,9 +56,7 @@ export default function FavoritesPage() {
 
       <aside>
         <br />
-        <br />
         <h3>My Palettes</h3>
-        <br />
         <br />
         <FavoritePalettesContainer favoritePalettes={favoritePalettes} toggleStale={toggleStale} />
       </aside>

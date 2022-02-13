@@ -19,7 +19,7 @@ export default function FavoritePalettesContainer({ favoritePalettes, toggleStal
   return (
     <div>
 
-      {favoritePalettes.map((palette, idx) => <SavedPalettesContainer palette={palette} key={idx} showFavoritePaletteModal={showFavoritePaletteModal} />)}
+      {favoritePalettes.map((palette, idx) => <div> <SavedPalettesContainer palette={palette} key={idx} showFavoritePaletteModal={showFavoritePaletteModal} /> <br/> </div>)}
 
 
       <FavoritePaletteModal palette={paletteSelected} hideFavoritePaletteModal={hideFavoritePaletteModal} showFPM={showFPM} toggleStale={toggleStale} />

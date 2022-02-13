@@ -5,7 +5,8 @@
   --alto: #d6d3d3;
   --silver-chalice: #aba9a9;
   --grey: #808080;
-  --roof-teracotta: #AF1D1D;
+  --button-purple: #4A3A71;
+  --roof-teracotta: #A44A4A;
   --text-light: #968c84;
   --text-dark: #615954;
 }
@@ -122,13 +123,13 @@ button, a.button {
   margin: 1vmin;
   padding: 1vmin;
   color: var(--white);
-  background-color: var(--roof-teracotta);
-  font-size: 2vmin;
+  background-color: var(--button-purple);
+  font-size: 2.5vmin;
   font-weight: bold;
   text-decoration: none;
   text-align: center;
   border: .1vmin solid var(--alto);
-  border-radius: .5vmin;
+  border-radius: 1vmin;
   outline: none;
   cursor: pointer;
 }
@@ -152,3 +153,61 @@ button[type="submit"] {
   grid-column: span 2;
   margin: 1vmin 0 0;
 }
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width:100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.modal-main {
+  position: fixed;
+  background-color: whitesmoke;
+  padding: 1vh 5vh 5vh 5vh; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 2px black solid;
+  border-radius: 10px;
+
+}
+
+.display-block {
+  display: block;
+}
+
+.display-none {
+  display: none;
+}
+
+.modal-close {
+align-self: flex-end;
+text-align: center;
+font-size: large;
+height: 7vh;
+width: 7vh;
+}
+
+.modal-select-color {
+align-self: center;
+width: 20%;
+}
+
+.modal-select {
+align-self: center;
+width: 50%;
+font-size: large;
+}
+
+
+.colorscontainer {
+  display: flex;
+  justify-content: space-evenly;
+} 
+

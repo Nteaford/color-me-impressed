@@ -15,39 +15,40 @@ export default function FavoritePaletteModal({ palette, hideFavoritePaletteModal
     return (
         <div className={showHideClassName}>
             <section className="modal-main">
-                <header className="fixed-top">
-                    <div>
-                        <button onClick={() => hideFavoritePaletteModal()}>
-                            Close
-                        </button>
-                    </div>
-                </header>
+
+                <button className='modal-close' onClick={() => hideFavoritePaletteModal()}>
+                    X
+                </button>
+
                 <br />
 
                 <div className='colorscontainer'>
                     {palette.colors && palette.colors.map(color =>
-                        <div className='palettecolor'>
-                            <div
-                                className='colorbox'
-                                style={{
-                                    backgroundColor: `${color.hex.value}`
-                                }}>
-                            </div>
-                            <div>
-                                <br />
-                                Hex Value: {color.hex.value}
-                                <br />
-                                RGB Value: {color.rgb.value}
-                                <br />
-                                CMYK Value: {color.cmyk.value}
-                                <br />
+                        <div>
+                            <div className='palettecolor'>
+                                <div
+                                    className='colorbox'
+                                    style={{
+                                        backgroundColor: `${color.hex.value}`
+                                    }}>
+                                </div>
+                                <div>
+                                    <br />
+                                    Hex Value: {color.hex.value}
+                                    <br />
+                                    RGB Value: {color.rgb.value}
+                                    <br />
+                                    CMYK Value: {color.cmyk.value}
+                                    <br />
+                                </div>
                             </div>
                         </div>
                     )}
                 </div>
-                <footer>
+                <br />
+                <div>
                     <button onClick={() => handleClickDelete(palette)}>Delete</button>
-                </footer>
+                </div>
             </section>
         </div >
     );
