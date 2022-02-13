@@ -22,7 +22,7 @@ body {
   sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url("../public/backgroundmain.png");
+  /* background-image: url("../public/backgroundmain.png"); */
   padding: 2vmin;
   height: 100vh;
 }

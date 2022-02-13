@@ -15,7 +15,8 @@
     align-items: center;
     margin: 3vmin 1vmin;
     border-radius: 5px;
-    background-image: url("../../../public/backgroundtile.png");
+    background-color: var(--mercury);
+    /* background-image: url("../../../public/backgroundtile.png"); */
     height: 100vh;
     border: 1px groove var(--alto) ;
   }
