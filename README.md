@@ -11,7 +11,7 @@ This app allows users to find colors and generate color schemes. It makes calls 
 ## Screenshots:
 Login Page (Not Logged In)
 ![Login Page Screenshot](https://i.imgur.com/Kimdm99.png)
-Signup Page (Logged In)
+Signup Page (Not Logged In)
 ![Home Page Screenshot](https://i.imgur.com/OK3Skve.png)
 Colors Page
 ![Colors Page Screenshot](https://i.imgur.com/Sa6sp9o.png)
