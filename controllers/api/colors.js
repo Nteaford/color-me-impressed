@@ -8,7 +8,7 @@ module.exports = {
 };
 
 async function index(req, res) {
-  const colors = await Color.find({});
+  const colors = await Color.find({user: req.user._id});
   res.json(colors);
 }
 

@@ -11,7 +11,7 @@
     display: flex;
     padding-right: 1%;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: start;
     align-items: center;
     margin: 3vmin 1vmin;
     border-radius: 5px;
