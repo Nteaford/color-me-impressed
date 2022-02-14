@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import * as colorsAPIInternal from '../../utilities/colors-api-internal';
 
-
 export default function FavoriteColorModal({ color, hideFavoriteColorModal, showFCM, toggleStale }) {
 
 
@@ -14,7 +13,6 @@ export default function FavoriteColorModal({ color, hideFavoriteColorModal, show
         hideFavoriteColorModal();
         toggleStale();
     }
-
 
     return (
         <div className={showHideClassName}>
@@ -39,14 +37,14 @@ export default function FavoriteColorModal({ color, hideFavoriteColorModal, show
                     CMYK Value: {color.cmyk.value}
                     <br />
                 </div>
-                <br/>  
+                <br />
                 <div>
                     <Link to={`/palette/${color.hex.clean}`}>
                         <button className="modal-select"> Generate a Scheme for this Color</button>
                     </Link>
                 </div>
                 <br />
-                    <button className="modal-select" onClick={() => handleClickDelete(color)}>Delete</button>
+                <button className="modal-select" onClick={() => handleClickDelete(color)}>Delete</button>
             </section>
         </div >
     );

@@ -1,7 +1,7 @@
 import "./PalettePage.css";
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import {useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import GeneratedPaletteContainer from '../../components/GeneratedPaletteContainer/GeneratedPaletteContainer';
 import * as colorsAPIExternal from '../../utilities/colors-api-external';
 import * as colorsAPIInternal from '../../utilities/colors-api-internal';
@@ -56,7 +56,7 @@ export default function PalettePage() {
         console.log(palette);
         await colorsAPIInternal.addPaletteToFavorites(palette);
         navigate('/favorites');
-        
+
     }
 
 
@@ -77,7 +77,7 @@ export default function PalettePage() {
 
                 <div>
                     <h2>Monochromatic Scheme </h2>
-                    <br/>      
+                    <br />
                     <GeneratedPaletteContainer palette={monoPalette} />
                     <button onClick={() => handleAddPalette(monoPalette)}> Save Palette</button>
                     <p>
@@ -88,10 +88,10 @@ export default function PalettePage() {
                     </p>
 
                 </div>
-                <br/>   
+                <br />
                 <div>
                     <h2>Analogous Scheme </h2>
-                    <br/>
+                    <br />
                     <GeneratedPaletteContainer palette={analPalette} />
                     <button onClick={() => handleAddPalette(analPalette)}> Save Palette</button>
                     <p>
@@ -102,10 +102,10 @@ export default function PalettePage() {
                     </p>
 
                 </div>
-                <br/>   
+                <br />
                 <div>
                     <h2>Complementary Scheme </h2>
-                    <br/>
+                    <br />
                     <GeneratedPaletteContainer palette={compPalette} />
                     <button onClick={() => handleAddPalette(compPalette)}> Save Palette</button>
                     <p>
@@ -116,10 +116,10 @@ export default function PalettePage() {
                     </p>
 
                 </div>
-                <br/>   
+                <br />
                 <div>
                     <h2>Split Complementary Scheme </h2>
-                    <br/>
+                    <br />
                     <GeneratedPaletteContainer palette={splitACPalette} />
                     <button onClick={() => handleAddPalette(splitACPalette)}> Save Palette</button>
                     <p>
@@ -130,10 +130,10 @@ export default function PalettePage() {
                     </p>
 
                 </div>
-                <br/>   
+                <br />
                 <div>
                     <h2>Triadic Scheme </h2>
-                    <br/>
+                    <br />
                     <GeneratedPaletteContainer palette={triadicPalette} />
                     <button onClick={() => handleAddPalette(triadicPalette)}> Save Palette</button>
                     <p>
@@ -144,10 +144,10 @@ export default function PalettePage() {
                     </p>
 
                 </div>
-                <br/>   
+                <br />
                 <div>
                     <h2>Square Scheme </h2>
-                    <br/>
+                    <br />
                     <GeneratedPaletteContainer palette={squarePalette} />
                     <button onClick={() => handleAddPalette(squarePalette)}> Save Palette</button>
                     <p>

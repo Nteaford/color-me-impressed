@@ -4,20 +4,8 @@ import { Link } from 'react-router-dom';
 import * as colorsAPIInternal from '../../utilities/colors-api-internal';
 
 
-export default function PaletteColorModal({ color, hideFavoriteColorModal, showFCM
-    // , toggleStale
- }) {
-
-
+export default function PaletteColorModal({ color, hideFavoriteColorModal, showFCM }) {
     const showHideClassName = showFCM ? "modal display-block" : "modal display-none";
-
-
-    // async function handleClickDelete(color) {
-    //     let colorID = color._id;
-    //     const deletedColor = await colorsAPIInternal.deleteColor(colorID);
-    //     hideFavoriteColorModal();
-    //     toggleStale();
-    // }
 
 
     return (
@@ -30,26 +18,23 @@ export default function PaletteColorModal({ color, hideFavoriteColorModal, showF
                         </button>
                     </div>
                 </header>
-                    <div
-                        className='colorbox'
-                        style={{
-                            backgroundColor: `${color.hex.value}`
-                        }}>
+                <div
+                    className='colorbox'
+                    style={{
+                        backgroundColor: `${color.hex.value}`
+                    }}>
 
-                    </div>
+                </div>
 
-                    <div>
-                        <br />
-                        Hex Value: {color.hex.value}
-                        <br />
-                        RGB Value: {color.rgb.value}
-                        <br />
-                        CMYK Value: {color.cmyk.value}
-                        <br />
-                    </div>
-                {/* <footer>
-                    <button onClick={() => handleClickDelete(color)}>Delete</button>
-                </footer> */}
+                <div>
+                    <br />
+                    Hex Value: {color.hex.value}
+                    <br />
+                    RGB Value: {color.rgb.value}
+                    <br />
+                    CMYK Value: {color.cmyk.value}
+                    <br />
+                </div>
             </section>
         </div >
     );

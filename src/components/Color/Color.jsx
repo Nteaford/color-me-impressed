@@ -1,15 +1,14 @@
+export default function Color({ color, handleColorSelect }) {
 
-export default function Color({color, handleColorSelect}) {
- 
-    return(
-    <div 
-        className='colorbox' 
-        onClick={()=> handleColorSelect(color)}
-        style={{
-        backgroundColor: `${color.hex.value}`
-        }}
-    >
-        <p>{color.hex.value}</p>
-    </div> 
- );
+    return (
+        <div
+            className='colorbox'
+            onClick={() => handleColorSelect(color)}
+            style={{
+                backgroundColor: `${color.hex.value}`
+            }}
+        >
+            <p>{color.hex.value}</p>
+        </div>
+    );
 }

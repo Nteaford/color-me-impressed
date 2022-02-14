@@ -21,13 +21,13 @@ export default function FavoriteColorsContainer({ favoriteColors, toggleStale })
   return (
 
     <div className="FCC">
-  
-        {favoriteColors.map((color, idx) => <FavoriteColor color={color} key={idx} showFavoriteColorModal={showFavoriteColorModal} />
-        )}
-        {colorSelected && 
-           <FavoriteColorModal color={colorSelected} hideFavoriteColorModal={hideFavoriteColorModal} showFCM={showFCM} toggleStale={toggleStale} />
-          
-        }
+
+      {favoriteColors.map((color, idx) => <FavoriteColor color={color} key={idx} showFavoriteColorModal={showFavoriteColorModal} />
+      )}
+      {colorSelected &&
+        <FavoriteColorModal color={colorSelected} hideFavoriteColorModal={hideFavoriteColorModal} showFCM={showFCM} toggleStale={toggleStale} />
+
+      }
 
     </div>
   )

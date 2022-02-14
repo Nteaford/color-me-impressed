@@ -31,9 +31,6 @@ export default function FavoritesPage() {
   }
 
 
-
-
-
   return (
     <div className="favoritespage">
       <main>
@@ -50,14 +47,14 @@ export default function FavoritesPage() {
           <h3>My Colors</h3>
           <br />
           <br />
-            <FavoriteColorsContainer favoriteColors={favoriteColors} toggleStale={toggleStale} />
+          <FavoriteColorsContainer favoriteColors={favoriteColors} toggleStale={toggleStale} />
         </div>
       </main>
 
       <aside>
-          <br />
+        <br />
         <h3>My Palettes</h3>
-          <br />
+        <br />
         <FavoritePalettesContainer favoritePalettes={favoritePalettes} toggleStale={toggleStale} />
       </aside>
 

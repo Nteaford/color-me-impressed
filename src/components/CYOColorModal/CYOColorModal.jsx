@@ -1,6 +1,4 @@
-import './CYOColorModal.css';
 import { useState } from 'react';
-
 
 export default function CYOColorModal({ hideModal, show, fetchCYOPick, cyoColor, setCYOColor }) {
     const showHideClassName = show ? "modal display-block" : "modal display-none";
