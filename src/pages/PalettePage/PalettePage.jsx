@@ -67,16 +67,17 @@ export default function PalettePage() {
             <br />
             <br />
             <br />
+            <h1> Palettes</h1>
             <br />
             <br />
             <br />
 
-            <div>Generated Palettes  https://blog.hubspot.com/marketing/color-theory-design </div>
 
             <div className="PalattePage">
 
                 <div>
-                    <h3>Monochromatic Scheme </h3>
+                    <h2>Monochromatic Scheme </h2>
+                    <br/>      
                     <GeneratedPaletteContainer palette={monoPalette} />
                     <button onClick={() => handleAddPalette(monoPalette)}> Save Palette</button>
                     <p>
@@ -87,9 +88,10 @@ export default function PalettePage() {
                     </p>
 
                 </div>
-
+                <br/>   
                 <div>
-                    <h3>Analogous Scheme </h3>
+                    <h2>Analogous Scheme </h2>
+                    <br/>
                     <GeneratedPaletteContainer palette={analPalette} />
                     <button onClick={() => handleAddPalette(analPalette)}> Save Palette</button>
                     <p>
@@ -100,9 +102,10 @@ export default function PalettePage() {
                     </p>
 
                 </div>
-
+                <br/>   
                 <div>
-                    <h3>Complementary Scheme </h3>
+                    <h2>Complementary Scheme </h2>
+                    <br/>
                     <GeneratedPaletteContainer palette={compPalette} />
                     <button onClick={() => handleAddPalette(compPalette)}> Save Palette</button>
                     <p>
@@ -113,9 +116,10 @@ export default function PalettePage() {
                     </p>
 
                 </div>
-
+                <br/>   
                 <div>
-                    <h3>Split Complementary Scheme </h3>
+                    <h2>Split Complementary Scheme </h2>
+                    <br/>
                     <GeneratedPaletteContainer palette={splitACPalette} />
                     <button onClick={() => handleAddPalette(splitACPalette)}> Save Palette</button>
                     <p>
@@ -126,9 +130,10 @@ export default function PalettePage() {
                     </p>
 
                 </div>
-
+                <br/>   
                 <div>
-                    <h3>Triadic Scheme </h3>
+                    <h2>Triadic Scheme </h2>
+                    <br/>
                     <GeneratedPaletteContainer palette={triadicPalette} />
                     <button onClick={() => handleAddPalette(triadicPalette)}> Save Palette</button>
                     <p>
@@ -139,9 +144,10 @@ export default function PalettePage() {
                     </p>
 
                 </div>
-
+                <br/>   
                 <div>
-                    <h3>Square Scheme </h3>
+                    <h2>Square Scheme </h2>
+                    <br/>
                     <GeneratedPaletteContainer palette={squarePalette} />
                     <button onClick={() => handleAddPalette(squarePalette)}> Save Palette</button>
                     <p>
